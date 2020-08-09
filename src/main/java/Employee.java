@@ -1,7 +1,6 @@
 public class Employee {
     private User user;
     private long salary;
-    private long times;
 
     public Employee() {
     }

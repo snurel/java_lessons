@@ -1,53 +1,34 @@
+import Car.*;
+import Processors.AddMotorProcessor;
+import Processors.CarRunner;
+import Processors.CarProcessor;
+import Processors.PaintCarProcessor;
+
+import java.util.ArrayList;
+
 public class MainUnit {
     public static void main(String[] args) {
-        User user1 = new User("Samet", 35, "developer");
-        User user2 = new User("Hakan", 30, "engineer");
+        Wolkswagen wolks = new Wolkswagen();
+        Opel opel = new Opel("cat");
+        Vosvos vosvos = new Vosvos();
 
-        System.out.println(user1.getScore());
-        System.out.println(user2.getScore());
+        ArrayList<Car> cars = new ArrayList<Car>();
+        cars.add(opel);
+        cars.add(vosvos);
+        cars.add(wolks);
 
-        System.out.println(Util.formatName("Samet nurel"));
+        Car car = new Wolkswagen();
+        Car car2 = new Opel("dog");
 
-        System.out.println(Util.formatName("Hakan nurel"));
-
-        System.out.println(Util.formatName("Faik Gürses"));
-
-        user1.setScore(20);
-
-        user2.setScore(15);
-
-        int limit = User.LIMIT;
-
-        User user3 = new User("meto");
-
-        int score = user1.incrementScore();
-
-        int age = 20;
-
-        String userName = "hakan";
-        Long money = 23465745756L;
-        long money2 = 23465745756L;
+        System.out.println(wolks.getInfo());
+        System.out.println(opel.getInfo());
+        System.out.println(vosvos.getInfo());
 
 
-        User user4 = new User("alis");
+        CarProcessor processor1 = new AddMotorProcessor(1.2, 1000);
+        CarProcessor processor2 = new PaintCarProcessor("red");
 
-        System.out.println(user3.getName() + " age is: " + (user3.getAge() + 1));
-
-        if(user1.getScore() >= user2.getScore()){
-            System.out.println(user1.getName() + " beat " + user2.getName());
-        }else{
-            System.out.println(user2.getName() + " beat " + user1.getName());
-        }
-
-
-
-        Employee employee1 = new Employee();
-
-        if(employee1.getUser() == null){
-            System.out.println("There is no user for employee1");
-        }else{
-            System.out.println(employee1.getUser().getName());
-        }
-
+        CarRunner runner = new AddMotorProcessor(2.0, 3000);
+        runner.runCar();
     }
 }
