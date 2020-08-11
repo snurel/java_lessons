@@ -1,4 +1,5 @@
 public class User {
+    private int id;
     private String name;
     private int age;
     private String job;
@@ -8,11 +9,16 @@ public class User {
 
     public String email;
 
-    public User(String name, int age, String job) {
+    public User(int id, String name, int age, String job) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.job = job;
-        this.score = LIMIT;
+        this.score = 0;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public User(String name){
